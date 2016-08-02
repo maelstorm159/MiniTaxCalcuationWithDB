@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="taxFormLogin.Home.homeController">
+   <children>
+      <TabPane prefHeight="400.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab closable="false" text="What is this app for?">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextArea editable="false" layoutY="-8.0" prefHeight="387.0" prefWidth="800.0" text="The purpose of this application is to estimate your personal federal income tax due or refund for tax year 2016.&#10;&#10;Please note that this app does not include the following at this moment:&#10;1) Non resident returns&#10;2) Earned income tax credit (for low income only)&#10;3) Additonal Child tax credit ($1000 per child)&#10;4)Itemized Deduction&#10;5)Many others&#10;&#10;&#10;" wrapText="true">
+                           <font>
+                              <Font name="Bell MT" size="20.0" />
+                           </font>
+                        </TextArea>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+          <Tab closable="false" text="Calculation">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="375.0" prefWidth="800.0">
+                     <children>
+                        <GridPane alignment="CENTER" prefHeight="371.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="10.0" prefWidth="50.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="200.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="274.0" minWidth="10.0" prefWidth="150.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label alignment="CENTER" prefHeight="400.0" text="What is your filing status?" />
+                              <Label text="Do you have any dependents?" GridPane.rowIndex="1" />
+                              <Label text="Enter box 1 from your W2 form:" GridPane.rowIndex="2" />
+                              <Label text="Enter box 2 from your W2 form:" GridPane.rowIndex="3" />
+                              <Label text="Enter box 7 from your 1099-MISC form:" GridPane.rowIndex="4" />
+                              <ComboBox fx:id="martialStatus" prefWidth="175.0" promptText="select one" GridPane.columnIndex="1" />
+                              <Button mnemonicParsing="false" onAction="#finalCalculation" prefHeight="36.0" prefWidth="159.0" text="Calculate" GridPane.rowIndex="6">
+                                 <font>
+                                    <Font name="Rage Italic" size="20.0" />
+                                 </font></Button>
+                              <ComboBox fx:id="dependentsNum" prefWidth="175.0" promptText="select a selection" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <TextField fx:id="w2" style="-fx-max-width: 150;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <TextField fx:id="wh" style="-fx-max-width: 150;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <TextField fx:id="miscIncome" style="-fx-max-width: 150;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <Label text="Taxable Income" GridPane.columnIndex="3" />
+                              <Label text="Tax Rate" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                              <Label text="Self Employment Tax" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                              <Label text="Withholding" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                              <Label text="Self Employment Tax deductibles" GridPane.rowIndex="5" />
+                              <TextField fx:id="SEduct" editable="false" promptText="Do not enter info" style="-fx-max-width: 150;" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                              <TextField fx:id="tIncome" editable="false" promptText="Do not enter info" style="-fx-max-width: 150;" GridPane.columnIndex="4" />
+                              <TextField fx:id="taxRate" editable="false" promptText="Do not enter Info" style="-fx-max-width: 150;" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                              <TextField fx:id="SEtax" editable="false" promptText="Do not enter info" style="-fx-max-width: 150;" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                              <TextField fx:id="w2Box2" editable="false" promptText="Do not enter Info" style="-fx-max-width: 150;" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+                              <TextField fx:id="taxDue" editable="false" promptText="Do not enter Info" style="-fx-max-width: 150;" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+                              <Label text="Tax due" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                              <TextField fx:id="taxRefund" editable="false" promptText="Do not enter info" style="-fx-max-width: 150;" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+                              <Label text="Tax Refund" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+                              <Button mnemonicParsing="false" onAction="#clear" prefHeight="36.0" prefWidth="159.0" text="Clear" GridPane.columnIndex="3" GridPane.rowIndex="6">
+                                 <font>
+                                    <Font name="Rage Italic" size="20.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab closable="false" text="Tax Bracket">
+               <content>
+                  <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="386.0" prefWidth="800.0">
+                    <items>
+                      <AnchorPane minHeight="146.0" minWidth="0.0" prefHeight="186.0" prefWidth="800.0" SplitPane.resizableWithParent="false">
+                           <children>
+                              <TableView fx:id="taxInfoTable" minHeight="104.0" prefHeight="187.0" prefWidth="800.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="20.0">
+                                <columns>
+                                  <TableColumn fx:id="filingStatusColumn" prefWidth="138.0" resizable="false" text="Filing Status" />
+                                  <TableColumn fx:id="standardDeductionColumn" prefWidth="147.0" resizable="false" text="Standard Deduction" />
+                                    <TableColumn fx:id="exemptionColumn" minWidth="0.0" prefWidth="148.0" resizable="false" text="Exemption" />
+                                </columns>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                      <AnchorPane minHeight="240.0" minWidth="0.0">
+                           <children>
+                              <TableView fx:id="taxBracketTable" layoutY="-8.0" minHeight="96.0" prefHeight="219.0" prefWidth="800.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="20.0">
+                                <columns>
+                                  <TableColumn fx:id="rateColumn" prefWidth="63.0" resizable="false" text="Rate" />
+                                  <TableColumn fx:id="singleColumn" prefWidth="167.0" resizable="false" text="Single Filer" />
+                                    <TableColumn fx:id="MJaWColumn" minWidth="3.0" prefWidth="213.0" resizable="false" text="Married Filer or Widow" />
+                                    <TableColumn fx:id="MSColumn" prefWidth="182.0" resizable="false" text="Married Filing Seperate" />
+                                    <TableColumn fx:id="HHColumn" prefWidth="173.0" resizable="false" text="Head of Household" />
+                                </columns>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
+               </content>
+            </Tab>
+            <Tab text="Improvements">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextArea editable="false" prefHeight="387.0" prefWidth="800.0" text="1) if user does not make a selection for filing status or dependent number, the rest of the code should not continue execute&#10;2) user input validation needs improvement&#10;3) Calcuation page needs redesign to better convey information" wrapText="true">
+                           <font>
+                              <Font name="Bell MT" size="20.0" />
+                           </font>
+                        </TextArea>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</Pane>

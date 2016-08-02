@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="taxFormLogin.LogInController">
+   <children>
+      <Label layoutX="28.0" layoutY="62.0" text="Tax Application">
+         <font>
+            <Font name="Rage Italic" size="34.0" />
+         </font>
+      </Label>
+      <Button layoutX="139.0" layoutY="231.0" mnemonicParsing="false" onAction="#verifySql" text="Login" />
+      <Button layoutX="190.0" layoutY="231.0" mnemonicParsing="false" onAction="#goNewUser" text="Create Account" />
+      <TextField fx:id="userName" layoutX="139.0" layoutY="150.0" promptText="Enter user name" />
+      <PasswordField fx:id="passWord" layoutX="139.0" layoutY="187.0" promptText="Enter password" />
+   </children>
+</Pane>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="taxFormLogin.createUser.createUserController">
+   <children>
+      <Label layoutX="28.0" layoutY="62.0" text="New user register form">
+         <font>
+            <Font name="Rage Italic" size="34.0" />
+         </font>
+      </Label>
+      <Button layoutX="139.0" layoutY="231.0" mnemonicParsing="false" onAction="#createUserButton" text="Okay" />
+      <Button layoutX="190.0" layoutY="231.0" mnemonicParsing="false" onAction="#cancelButton" text="Clear" />
+      <TextField fx:id="newUser" layoutX="139.0" layoutY="115.0" promptText="Enter user name" />
+      <PasswordField fx:id="newPass" layoutX="139.0" layoutY="150.0" promptText="Enter password" />
+      <Button layoutX="28.0" layoutY="25.0" mnemonicParsing="false" onAction="#backButton" prefHeight="25.0" prefWidth="51.0" text="Back" />
+      <PasswordField fx:id="newPassAgain" layoutX="139.0" layoutY="184.0" promptText="password again please" />
+   </children>
+</Pane>
